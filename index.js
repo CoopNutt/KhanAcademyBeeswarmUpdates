@@ -4547,7 +4547,7 @@ function BeeSwarmSimulator(DATA){
         
         blueBoost:{
             
-            desc:"Grants x1.1 blue pollen for 25s. Stacks up to 10x, for a maximum of x2 blue pollen.",
+            desc:"Grants x1.2 blue pollen for 25s. Stacks up to 10x, for a maximum of x2 blue pollen.",
             trialCooldown:20,trialRate:0.4,
             statsToAddTo:['blueBoostTokens','blueAbilityTokens','boostTokens','markOrBoostTokens'],
             u:128*2/2048,v:128/2048,
@@ -4560,18 +4560,18 @@ function BeeSwarmSimulator(DATA){
             
             update:(amount,player)=>{
                 
-                player.bluePollen*=amount*0.1+1
+                player.bluePollen*=amount*0.2+1
             },
             
             getMessage:(amount)=>{
                 
-                return 'Blue Boost\nx'+(amount*0.1+1).toFixed(1)+' blue pollen'
+                return 'Blue Boost\nx'+(amount*0.2+1).toFixed(1)+' blue pollen'
             }
         },
         
         redBoost:{
             
-            desc:"Grants x1.1 red pollen for 25s. Stacks up to 10x, for a maximum of x2 red pollen.",
+            desc:"Grants x1.2 red pollen for 25s. Stacks up to 10x, for a maximum of x2 red pollen.",
             trialCooldown:20,trialRate:0.4,
             statsToAddTo:['redBoostTokens','redAbilityTokens','boostTokens','markOrBoostTokens'],
             u:128*3/2048,v:128/2048,
@@ -4584,18 +4584,18 @@ function BeeSwarmSimulator(DATA){
             
             update:(amount,player)=>{
                 
-                player.redPollen*=amount*0.1+1
+                player.redPollen*=amount*0.2+1
             },
             
             getMessage:(amount)=>{
                 
-                return 'Red Boost\nx'+(amount*0.1+1).toFixed(1)+' red pollen'
+                return 'Red Boost\nx'+(amount*0.2+1).toFixed(1)+' red pollen'
             }
         },
         
         whiteBoost:{
             
-            desc:"Grants x1.1 white pollen for 25s. Stacks up to 10x, for a maximum of x2 white pollen.",
+            desc:"Grants x1.2 white pollen for 25s. Stacks up to 10x, for a maximum of x2 white pollen.",
             trialCooldown:15,trialRate:0.5,
             statsToAddTo:['boostTokens','markOrBoostTokens'],
             u:128*4/2048,v:128/2048,
@@ -4608,12 +4608,12 @@ function BeeSwarmSimulator(DATA){
             
             update:(amount,player)=>{
                 
-                player.whitePollen*=amount*0.1+1
+                player.whitePollen*=amount*0.2+1
             },
             
             getMessage:(amount)=>{
                 
-                return 'White Boost\nx'+(amount*0.1+1).toFixed(1)+' white pollen'
+                return 'White Boost\nx'+(amount*0.2+1).toFixed(1)+' white pollen'
             }
         },
         
@@ -4853,7 +4853,7 @@ function BeeSwarmSimulator(DATA){
         
         inferno:{
 
-            desc:"Summons 4 flames and 2 temporary Fire Bees that last for 15s(+1s per lvl). The Fire Bees are gifted if this bee is gifted.<br><br>Flames last for 3s, collecting 10R/4W/1B pollen from 9 nearby flowers every second. Pollen collected is multiplied by 4% per red bee(8% is gifted). Flames also deal 15 damage to mobs every second. Standing in flames grant Flame Heat, lasting for 20s, and giving up to x2 red pollen and x1.2 bee attack.",
+            desc:"Summons 4 flames and 4 temporary Fire Bees that last for 15s(+1s per lvl). The Fire Bees are gifted if this bee is gifted.<br><br>Flames last for 3s, collecting 10R/4W/1B pollen from 9 nearby flowers every second. Pollen collected is multiplied by 4% per red bee(8% is gifted). Flames also deal 15 damage to mobs every second. Standing in flames grant Flame Heat, lasting for 20s, and giving up to x2 red pollen and x1.2 bee attack.",
             trialCooldown:20,trialRate:0.5,
             statsToAddTo:['redAbilityTokens','battleTokens'],
             u:0,v:256/2048,
@@ -4883,6 +4883,10 @@ function BeeSwarmSimulator(DATA){
                         objects.flames.push(new Flame(params.field,params.x+1,params.z))
                     }
                     
+                    objects.tempBees.push(new TempBee([fieldInfo[params.field].x+params.x,fieldInfo[params.field].y+0.5,fieldInfo[params.field].z+params.z],'fire',Math.max(params.bee.level-2,1),15+params.bee.level,params.bee.gifted))
+                    
+                    objects.tempBees.push(new TempBee([fieldInfo[params.field].x+params.x,fieldInfo[params.field].y+0.5,fieldInfo[params.field].z+params.z],'fire',Math.max(params.bee.level-2,1),15+params.bee.level,params.bee.gifted))
+
                     objects.tempBees.push(new TempBee([fieldInfo[params.field].x+params.x,fieldInfo[params.field].y+0.5,fieldInfo[params.field].z+params.z],'fire',Math.max(params.bee.level-2,1),15+params.bee.level,params.bee.gifted))
                     
                     objects.tempBees.push(new TempBee([fieldInfo[params.field].x+params.x,fieldInfo[params.field].y+0.5,fieldInfo[params.field].z+params.z],'fire',Math.max(params.bee.level-2,1),15+params.bee.level,params.bee.gifted))
