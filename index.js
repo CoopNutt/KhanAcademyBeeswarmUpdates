@@ -4626,15 +4626,15 @@ function BeeSwarmSimulator(DATA){
             cooldown:document.getElementById('babyLove_cooldown'),
             amount:document.getElementById('babyLove_amount'),
             maxCooldown:30,
-            maxAmount:1,
-            tokenLife:8,
+            maxAmount:600,
+            tokenLife:600,
             
             update:(amount,player)=>{
                 
-                player.redPollen*=2
-                player.whitePollen*=2
-                player.bluePollen*=2
-                player.lootLuck*=2
+                player.redPollen*=6
+                player.whitePollen*=6
+                player.bluePollen*=6
+                player.lootLuck*=6
             },
             
             getMessage:(amount)=>{
@@ -4653,18 +4653,18 @@ function BeeSwarmSimulator(DATA){
             amount:document.getElementById('inspire_amount'),
             maxCooldown:5,
             maxAmount:50,
-            tokenLife:4,
+            tokenLife:400,
             
             update:(amount,player)=>{
                 
-                player.redPollen*=amount*1+1
-                player.whitePollen*=amount*1+1
-                player.bluePollen*=amount*1+1
+                player.redPollen*=amount*4+1
+                player.whitePollen*=amount*4+1
+                player.bluePollen*=amount*4+1
             },
             
             getMessage:(amount)=>{
                 
-                return 'Inspire\nx'+(amount*1+1).toFixed(2)+' pollen'
+                return 'Inspire\nx'+(amount*4+1).toFixed(2)+' pollen'
             }
         },
         
