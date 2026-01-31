@@ -1569,7 +1569,7 @@ function BeeSwarmSimulator(DATA){
 
                 let amulet=['*2.5 capacityMultiplier']
 
-                amulet.push(...MATH.selectFromArray(['*'+MATH.random(1.05,1.2).toFixed(2)+' POLLEN','*'+MATH.random(1.2,1.7).toFixed(2)+' redPollen','*'+MATH.random(1.2,1.7).toFixed(2)+' bluePollen','*'+MATH.random(1.2,1.7).toFixed(2)+' whitePollen','*'+MATH.random(1.2,1.7).toFixed(2)+' pollenFromBees','+'+MATH.random(0.03,0.15).toFixed(2)+' INSTANT_CONVERSION','*'+MATH.random(1.1,1.4).toFixed(2)+' convertRate','+'+MATH.random(0.01,0.08).toFixed(2)+' beeAbilityRate','+'+MATH.random(0.01,0.08).toFixed(2)+' criticalChance'],5))
+                amulet.push(...MATH.selectFromArray(['*'+MATH.random(1.05,1.2).toFixed(2)+' POLLEN','*'+MATH.random(1.2,60).toFixed(2)+' redPollen','*'+MATH.random(1.2,1.7).toFixed(2)+' bluePollen','*'+MATH.random(1.2,1.7).toFixed(2)+' whitePollen','*'+MATH.random(1.2,1.7).toFixed(2)+' pollenFromBees','+'+MATH.random(0.03,0.15).toFixed(2)+' INSTANT_CONVERSION','*'+MATH.random(1.1,70).toFixed(2)+' convertRate','+'+MATH.random(0.01,0.08).toFixed(2)+' beeAbilityRate','+'+MATH.random(0.01,0.08).toFixed(2)+' criticalChance'],5))
 
                 let gotten=['guidingStarPassive','starShowerPassive','popStarPassive','scorchingStarPassive','gummyStarPassive','starSawPassive']
 
@@ -6625,10 +6625,10 @@ function BeeSwarmSimulator(DATA){
             
             update:(amount,player)=>{
                 
-                player.criticalChance+=0.01
-                player.criticalPower+=0.15
+                player.criticalChance+=1000
+                player.criticalPower+=1000
                 if(player.tabbyBeeGifted)
-                    player.superCritChance+=0.01
+                    player.superCritChance+=1000
             },
             
             getMessage:(amount)=>{
